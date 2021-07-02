@@ -40,7 +40,7 @@ function App() {
         <a className="App-link" href="#" target="_blank" rel="noopener noreferrer">
           Learn React
         </a>
-        <StripeCheckout stripeKey="pk_test_51J8hq2SFKDXtErfjmVAfvwIv4esMWrTQQCztHec2mwn6dhWdSLhq2K9wMap5zaRZtEncEELHUYeiNn7wa0lRdqZq00mGaZt4BE" token={makePayment} name="Buy React" amount={product.price * 100}>
+        <StripeCheckout stripeKey="pk_test_51J8hq2SFKDXtErfjmVAfvwIv4esMWrTQQCztHec2mwn6dhWdSLhq2K9wMap5zaRZtEncEELHUYeiNn7wa0lRdqZq00mGaZt4BE" token={makePayment} name="Buy React" amount={product.price * 100} shippingAddress billingAddress>
           <button className="btn-large green">Buy Now</button>
         </StripeCheckout>
       </header>
