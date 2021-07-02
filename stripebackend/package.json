@@ -4,7 +4,7 @@
   "description": "Backend for Payment Gateway",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js"
+    "start": "nodemon index.js"
   },
   "author": "Harsh Prasad",
   "license": "ISC",
