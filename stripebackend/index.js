@@ -1,6 +1,8 @@
 const cors = require("cors");
 const express = require("express");
-const stripe = require("stripe")("pk_test_51J8hq2SFKDXtErfjmVAfvwIv4esMWrTQQCztHec2mwn6dhWdSLhq2K9wMap5zaRZtEncEELHUYeiNn7wa0lRdqZq00mGaZt4BE");
+const dotenv = require("dotenv");
+dotenv.config();
+const stripe = require("stripe")(process.env.KEY);
 const { v4: uuidv4 } = require("uuid");
 uuidv4();
 const app = express();
