@@ -18,3 +18,13 @@ main {
   align-items: center;
   justify-content: center;
 }
+
+.homeScreenForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formTag {
+  width: 700px;
+}
