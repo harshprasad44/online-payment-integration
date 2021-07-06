@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import StripeCheckout from "react-stripe-checkout";
+import { Row, Col, ListGroup, Card } from "react-bootstrap";
 
 function SummaryScreen({ history }) {
   const [product, setProduct] = useState({
@@ -41,12 +42,43 @@ function SummaryScreen({ history }) {
 
   return (
     <div className="App">
+      <Row>
+        <Col md={8}>
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <h2>Name</h2>
+              <p>HERE</p>
+            </ListGroup.Item>
+
+            <ListGroup.Item>
+              <h2>Email</h2>
+              <p>HERE</p>
+            </ListGroup.Item>
+
+            <ListGroup.Item>
+              <h2>Address</h2>
+              <p>HERE</p>
+            </ListGroup.Item>
+
+            <ListGroup.Item>
+              <h2>Payment Method</h2>
+              HERE
+            </ListGroup.Item>
+          </ListGroup>
+        </Col>
+      </Row>
+
       <header className="App-header">
-        <StripeCheckout stripeKey="pk_test_51J8hq2SFKDXtErfjmVAfvwIv4esMWrTQQCztHec2mwn6dhWdSLhq2K9wMap5zaRZtEncEELHUYeiNn7wa0lRdqZq00mGaZt4BE" token={makePayment} name="Online Payment Integration" amount={product.price * 100} shippingAddress billingAddress>
+        <StripeCheckout
+          stripeKey="pk_test_51J8hq2SFKDXtErfjmVAfvwIv4esMWrTQQCztHec2mwn6dhWdSLhq2K9wMap5zaRZtEncEELHUYeiNn7wa0lRdqZq00mGaZt4BE"
+          token={makePayment}
+          name="Online Payment Integration"
+          amount={product.price * 100}
+          shippingAddress
+          billingAddress
+        >
           <button className="btn-large green">Make Payment</button>
         </StripeCheckout>
-
-        {/* {success && <a href="/success">Success</a>} */}
       </header>
     </div>
   );

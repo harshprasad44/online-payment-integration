@@ -1,11 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { userReducer } from "./reducers/userReducers";
 
-const reducer = combineReducers({});
+const reducer = combineReducers({
+  userInfo: userReducer,
+});
 
 const initialState = {
-  information: {},
+  userInfo: {},
 };
 
 const middleware = [thunk];
