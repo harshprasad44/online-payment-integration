@@ -76,7 +76,7 @@ const HomeScreen = ({ history }) => {
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridZip">
-            <Form.Label>Zip</Form.Label>
+            <Form.Label>Postal Code</Form.Label>
             <Form.Control value={postalCode} onChange={(e) => setPostalCode(e.target.value)} type="text" required />
           </Form.Group>
         </Form.Row>

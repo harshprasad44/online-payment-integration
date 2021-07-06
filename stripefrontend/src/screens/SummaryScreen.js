@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from "react";
 import StripeCheckout from "react-stripe-checkout";
-import { Row, Col, ListGroup, Card } from "react-bootstrap";
+import { Row, Col, ListGroup } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 function SummaryScreen({ history }) {
+  const info = useSelector((state) => state.userInfo);
+
+  useEffect(() => {
+    if (!info.userInfo.name) {
+      history.push("/");
+    }
+  }, [history, info]);
+
   const [product, setProduct] = useState({
     name: "Online Payment Integration",
     price: 10,
@@ -43,26 +52,36 @@ function SummaryScreen({ history }) {
   return (
     <div className="App">
       <Row>
-        <Col md={8}>
+        <Col style={{ width: "500px" }} md={8}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>Name</h2>
-              <p>HERE</p>
+              <p>{info.userInfo.name}</p>
             </ListGroup.Item>
 
             <ListGroup.Item>
               <h2>Email</h2>
-              <p>HERE</p>
+              <p>{info.userInfo.email}</p>
             </ListGroup.Item>
 
             <ListGroup.Item>
               <h2>Address</h2>
-              <p>HERE</p>
+              <p>{info.userInfo.address}</p>
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Payment Method</h2>
-              HERE
+              <h2>Postal Code</h2>
+              <p>{info.userInfo.postalCode}</p>
+            </ListGroup.Item>
+
+            <ListGroup.Item>
+              <h2>Amount to Pay</h2>
+              <p>$10</p>
+            </ListGroup.Item>
+
+            <ListGroup.Item>
+              <h2>Payment Gateway</h2>
+              Stripe
             </ListGroup.Item>
           </ListGroup>
         </Col>
@@ -74,8 +93,6 @@ function SummaryScreen({ history }) {
           token={makePayment}
           name="Online Payment Integration"
           amount={product.price * 100}
-          shippingAddress
-          billingAddress
         >
           <button className="btn-large green">Make Payment</button>
         </StripeCheckout>
