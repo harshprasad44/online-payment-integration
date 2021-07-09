@@ -1,11 +1,15 @@
 const cors = require("cors");
 const express = require("express");
 const dotenv = require("dotenv");
+const sgMail = require("@sendgrid/mail");
+
 dotenv.config();
 const stripe = require("stripe")(process.env.KEY);
 const { v4: uuidv4 } = require("uuid");
 uuidv4();
 const app = express();
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // middlewares
 app.use(express.json());
@@ -47,6 +51,25 @@ app.post("/payment", (req, res) => {
     })
     .then((result) => res.status(200).json(result))
     .catch((err) => console.log(err));
+});
+
+app.post("/email", (req, res) => {
+  const msg = {
+    to: req.body.to, // Change to your recipient
+    from: "harsh@harshprasad.com", // Change to your verified sender
+    subject: "Sending with SendGrid is Fun",
+    text: "and easy to do anywhere, even with Node.js",
+    html: "<strong>and easy to do anywhere, even with Node.js</strong>",
+  };
+  sgMail
+    .send(msg)
+    .then(() => {
+      console.log("Email sent");
+      res.send("Sent email");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 });
 
 // listen
