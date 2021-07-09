@@ -5,12 +5,15 @@ import { useSelector } from "react-redux";
 
 function SummaryScreen({ history }) {
   const info = useSelector((state) => state.userInfo);
+  const summary = info.userInfo.summary;
+
+  console.log(summary);
 
   useEffect(() => {
-    if (!info.userInfo.name) {
+    if (!summary) {
       history.push("/");
     }
-  }, [history, info]);
+  }, [history, summary]);
 
   const [product, setProduct] = useState({
     name: "Online Payment Integration",

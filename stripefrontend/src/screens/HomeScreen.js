@@ -17,7 +17,7 @@ const HomeScreen = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(saveUserInfo({ name, email, address, address2, city, postalCode }));
+    dispatch(saveUserInfo({ name, email, address, address2, city, postalCode, summary: true }));
     history.push("/summary");
   };
 

@@ -8,7 +8,12 @@ const reducer = combineReducers({
 });
 
 const initialState = {
-  userInfo: {},
+  userInfo: {
+    userInfo: {
+      summary: false,
+      success: false,
+    },
+  },
 };
 
 const middleware = [thunk];
