@@ -15,6 +15,7 @@ const SuccessScreen = ({ history }) => {
   axios
     .post(`http://localhost:8282/email`, {
       to: info.userInfo.email,
+      name: info.userInfo.name,
     })
     .then(function (response) {
       console.log(response);

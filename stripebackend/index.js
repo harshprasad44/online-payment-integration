@@ -59,7 +59,7 @@ app.post("/email", (req, res) => {
     from: "harsh@harshprasad.com", // Change to your verified sender
     subject: "Your Payment receipt of $10",
     text: "By Harsh Prasad, harsh@harshprasad.com",
-    html: `<h3>Hey ${req.body.name}, thanks for donating to my internship project Payment Gateway Integration by The Sparks Foundation, Singapore. Your $10 has been successfully received.</h3><h5>Thanks, Harsh Prasad.</h5>`,
+    html: `<h3>Hey ${req.body.name}, thanks for donating to my internship project Payment Gateway Integration by The Sparks Foundation, Singapore. Your $10 has been successfully received.</h3><h3>Thanks, Harsh Prasad.</h3>`,
   };
   sgMail
     .send(msg)
