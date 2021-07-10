@@ -7,8 +7,6 @@ function SummaryScreen({ history }) {
   const info = useSelector((state) => state.userInfo);
   const summary = info.userInfo.summary;
 
-  console.log(summary);
-
   useEffect(() => {
     if (!summary) {
       history.push("/");
@@ -44,9 +42,10 @@ function SummaryScreen({ history }) {
       body: JSON.stringify(body),
     })
       .then((response) => {
-        console.log("RESPONSE ", response);
-        const { status } = response;
-        console.log("STATUS ", status);
+        // console.log("RESPONSE ", response);
+        // const { status } = response;
+        // console.log("STATUS ", status);
+        info.userInfo.success = true;
         setSucceess(true);
       })
       .catch((error) => console.log(error));
