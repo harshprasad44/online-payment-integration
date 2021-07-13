@@ -77,11 +77,11 @@ app.post("/email", (req, res) => {
 // app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../stripefrontend/build")));
+  app.use(express.static(path.join(__dirname, "stripefrontend/build")));
 
   app.get("*", (req, res) => {
     res.sendFile(
-      path.resolve(__dirname, "../stripefrontend", "build", "index.html")
+      path.resolve(__dirname, "stripefrontend", "build", "index.html")
     );
   });
 } else {
