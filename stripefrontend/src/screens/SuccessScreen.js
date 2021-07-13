@@ -13,7 +13,7 @@ const SuccessScreen = ({ history }) => {
   }, [history, success]);
 
   axios
-    .post(`http://localhost:8282/email`, {
+    .post(`https://localhost:8282/email`, {
       to: info.userInfo.email,
       name: info.userInfo.name,
     })
