@@ -1,3 +1,4 @@
+const path = require("path");
 const cors = require("cors");
 const express = require("express");
 const dotenv = require("dotenv");
@@ -16,9 +17,9 @@ app.use(express.json());
 app.use(cors());
 
 // routes
-app.get("/", (req, res) => {
-  res.send("It works!");
-});
+// app.get("/", (req, res) => {
+//   res.send("It works!");
+// });
 
 app.post("/payment", (req, res) => {
   const { product, token } = req.body;
@@ -71,6 +72,23 @@ app.post("/email", (req, res) => {
       console.error(error);
     });
 });
+
+// const __dirname = path.resolve();
+// app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../stripefrontend/build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(
+      path.resolve(__dirname, "../stripefrontend", "build", "index.html")
+    );
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running...");
+  });
+}
 
 // listen
 app.listen(8282, () => {

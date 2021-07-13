@@ -1,6 +1,7 @@
 node_modules
 stripebackend/node_modules
 stripefrontend/node_modules
+stripefrontend/build
 .env
 stripebackend/.env
 stripefrontend/.env

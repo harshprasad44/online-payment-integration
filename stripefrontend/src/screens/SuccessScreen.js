@@ -24,7 +24,11 @@ const SuccessScreen = ({ history }) => {
       console.log(error);
     });
 
-  return <div>Suceess</div>;
+  return (
+    <div>
+      <h2>Success, confirmation mail sent to {info.userInfo.email}</h2>
+    </div>
+  );
 };
 
 export default SuccessScreen;
