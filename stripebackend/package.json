@@ -4,7 +4,8 @@
   "description": "Backend for Payment Gateway",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix stripefrontend && npm run build --prefix stripefrontend"
   },
   "author": "Harsh Prasad",
   "license": "ISC",
