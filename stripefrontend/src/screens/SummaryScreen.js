@@ -36,7 +36,7 @@ function SummaryScreen({ history }) {
       "Content-Type": "application/json",
     };
 
-    return fetch(`https://localhost:8282/payment`, {
+    return fetch(`/payment`, {
       method: "POST",
       headers,
       body: JSON.stringify(body),
