@@ -54,7 +54,7 @@ function SummaryScreen({ history }) {
   return (
     <div className="App">
       <Row>
-        <Col style={{ width: "500px" }} md={8}>
+        <Col style={{ width: "70%" }} md={8}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>Name</h2>
@@ -89,7 +89,7 @@ function SummaryScreen({ history }) {
         </Col>
       </Row>
 
-      <header className="App-header">
+      <Row className="App-header">
         <StripeCheckout
           stripeKey="pk_test_51J8hq2SFKDXtErfjmVAfvwIv4esMWrTQQCztHec2mwn6dhWdSLhq2K9wMap5zaRZtEncEELHUYeiNn7wa0lRdqZq00mGaZt4BE"
           token={makePayment}
@@ -98,7 +98,7 @@ function SummaryScreen({ history }) {
         >
           <button className="btn-large green">Make Payment</button>
         </StripeCheckout>
-      </header>
+      </Row>
     </div>
   );
 }
