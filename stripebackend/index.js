@@ -91,6 +91,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // listen
-app.listen(8282, () => {
+app.listen(process.env.PORT || 8282, () => {
   console.log("Listening at port 8282");
 });

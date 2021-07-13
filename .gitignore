@@ -5,3 +5,4 @@ stripefrontend/build
 .env
 stripebackend/.env
 stripefrontend/.env
+stripefrontend/build
