@@ -1,6 +1,6 @@
 {
   "name": "stripefrontend",
-  "proxy": "http://127.0.0.1:8282",
+  "proxy": "https://127.0.0.1:8282",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
